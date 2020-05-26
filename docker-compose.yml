@@ -4,7 +4,7 @@ services:
   landsat:
     build: .
     ports:
-      - "8000:8000"
+      - "18000:8000"
     volumes:
       - '.:/local'
     environment:
@@ -26,7 +26,7 @@ services:
   cbers:
     build: .
     ports:
-      - "8000:8000"
+      - "18001:8000"
     volumes:
       - '.:/local'
     environment:
@@ -49,7 +49,7 @@ services:
   sentinel:
     build: .
     ports:
-      - "8000:8000"
+      - "18002:8000"
     volumes:
       - '.:/local'
     environment:
@@ -72,7 +72,7 @@ services:
   cogeo:
     build: .
     ports:
-      - "8000:8000"
+      - "18003:8000"
     volumes:
       - '.:/local'
     environment:

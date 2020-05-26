@@ -7,7 +7,7 @@ inst_reqs = [
     "aws-sat-api~=2.0",
     "lambda-proxy~=5.0",
     "rio-color",
-    "rio-tiler>=1.2.10",
+    "git+https://github.com/mvmendes/rio-tiler>=1.2.10",
     "rio_tiler_mosaic",
 ]
 

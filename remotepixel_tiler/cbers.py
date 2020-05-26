@@ -111,12 +111,14 @@ def tile(
     """Handle tile requests."""
     driver = "jpeg" if ext == "jpg" else ext
 
-    if bands and expr:
-        raise CbersTilerError("Cannot pass bands and expression")
+    if bands and expr and (expr is not 'pansharp'):
+        raise CbersTilerError("Cannot pass bands and expression (unless pansharp expression)")
 
     tilesize = scale * 256
-
-    if expr is not None:
+    if expr is 'pansharp':
+        tile, mask = cbers.tile_pansharpen(
+            scene, x, y, z, bands=tuple(bands.split(",")), tilesize=tilesize
+    elif expr is not None:
         tile, mask = expression(scene, x, y, z, expr=expr, tilesize=tilesize)
     elif bands is not None:
         tile, mask = cbers.tile(
